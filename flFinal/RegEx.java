@@ -1,10 +1,12 @@
 
-public class regEx {
+public class RegEx {
     char z[]; // the regex pattern characters
     int x = 0;
     int num = 0;
 
-    public regexParser(String z){
+    
+
+    public RegEx(String z){
         this.z = z.toCharArray();
         num = this.z.length;
     }
@@ -31,8 +33,8 @@ public class regEx {
             q = end();
             NFA w = pattern();
             if(w != null){
-                q.stop.epsilon(k.start());
-                return new NFA(q.start(), w.stop());
+                q.stop.epsilon(w.start);
+                return new NFA(q.start, w.stop);
             }else{
                 return q;
             }
@@ -47,10 +49,10 @@ public class regEx {
         while(search() == '*'){
             matchCheck('*');
             NFA n = new NFA();
-            n.start.epsilon(q.start());
-            q.stop.epsilon(n.start());
-            q.stop.epsilon(n.stop());
-            n.start.epsilon(n.stop());
+            n.start.epsilon(q.start);
+            q.stop.epsilon(n.start);
+            q.stop.epsilon(n.stop);
+            n.start.epsilon(n.stop);
             q = n;
         }
         return q;
@@ -90,7 +92,7 @@ public class regEx {
 
     public char search(){
         if(x >= z.length){
-            return char-1;
+            return (char)-1;
         }
         return z[x];
     }

@@ -1,8 +1,6 @@
 /** Hannah Dougherty
  * DFA.java
  */
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 public class DFA extends NFA{
 
@@ -14,12 +12,5 @@ public class DFA extends NFA{
         this.start = nfa.start;
         this.stop = nfa.stop;
     }
-
-    public dotConvert(){
-        // create DOT file
-    }
-
-    public toDOT(){
-
-    }
+    // create dot file
 }

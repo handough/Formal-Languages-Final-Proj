@@ -8,21 +8,20 @@ import java.io.File;
 public class grep{
         
     public static class writeFile{
-        private final String outter;
         static StringBuilder NFAfile = new StringBuilder();
         static StringBuilder DFAfile = new StringBuilder();
         int NFA = 0;
         int DFA = 1;
 
-        public NFA processNFA(String[] regex, int x){
-            RegEx parse = new RegEx(regex[i]);
+        public NFA processNFA(String[] regexer, int x){
+            RegEx parse = new RegEx(regexer[x]);
             NFA nfaa = parse.regex();;
             return nfaa;
         }
 
         public void processDFA(NFA nfa){
             DFA dfaa = new DFA();
-            dfaa.nfaToDfa(nfa);
+            dfaa.nfaDfa(nfa);
         }
     }
 
@@ -60,6 +59,8 @@ public class grep{
             //String[] lines = file.openFile(); // open regex file
             FileWriter outputNFA = new FileWriter(NFAfiler); // create NFA file
             FileWriter outputDFA = new FileWriter(DFAfiler); // create DFA file
+            outputNFA.close();
+            outputDFA.close();
         }catch(IOException e){
             System.out.println("An error occurred.");
         }

@@ -5,13 +5,12 @@
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 public class NFA{
     // invalid value for accept in stop state 
     public static final int FAIL = 0;
     // epsilon variable
-    public static final char EP = 0;
+    public static final char EPSILON = 0;
     // global state counting variable
     public static int globals = 0;
 
@@ -31,8 +30,8 @@ public class NFA{
             edges.add(e);
         }
 
-        public void epsi(State target){
-            edge(EP, target);
+        public void epsilon(State target){
+            edge(EPSILON, target);
         }
 
         public void accept(int x){
@@ -45,8 +44,8 @@ public class NFA{
         }
     }
 
-    public class Edge(){
-        State target;
+    public static class Edge{
+        final State target;
         char z;
 
         public Edge(char z, State target){
@@ -54,6 +53,9 @@ public class NFA{
             this.target = target;
         }
     }
+
+    protected State start;
+    protected State stop;
     
     public NFA(){
         start = new State();
@@ -65,16 +67,14 @@ public class NFA{
         this.start = start;
     }
 
-    public String toDot(){
-        // actually build strings file
-    }
+    // build string file
 
     public void tooDOT(){
         // build string to save
     }
 
     public LinkedHashSet<State> getState(){
-        LinkedHashSet<State> visited = new LinkedHashSet<>;
+        LinkedHashSet<State> visited = new LinkedHashSet<>();
         getStater(start, visited);
         return visited;
     }
