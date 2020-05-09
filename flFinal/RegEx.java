@@ -1,4 +1,7 @@
 
+/** Hannah Dougherty
+ * RegEx.java
+ */
 public class RegEx {
     char z[]; // the regex pattern characters
     int x = 0;

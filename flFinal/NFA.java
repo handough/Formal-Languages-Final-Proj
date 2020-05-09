@@ -1,5 +1,5 @@
 /** Hannah Dougherty
- * https://github.com/akcieslak/NFA-Regex/blob/master/NFA.java
+ * NFA.java
  */
 
 import java.util.ArrayList;

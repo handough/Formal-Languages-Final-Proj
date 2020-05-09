@@ -3,7 +3,6 @@
  * https://www.homeandlearn.co.uk/java/read_a_textfile_in_java.html
  */
 import java.io.*;
-import java.io.File;
 
 public class grep{
         
