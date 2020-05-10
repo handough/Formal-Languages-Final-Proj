@@ -7,8 +7,6 @@ public class RegEx {
     int x = 0;
     int num = 0;
 
-    
-
     public RegEx(String z){
         this.z = z.toCharArray();
         num = this.z.length;
