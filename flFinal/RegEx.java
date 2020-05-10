@@ -8,11 +8,13 @@ public class RegEx {
     int num = 0;
 
     public RegEx(String z){
+        // converting to an array 
         this.z = z.toCharArray();
         num = this.z.length;
     }
 
     public NFA regex(){
+        // formatting regex
         NFA q;
         q = pattern();
         if(q==null){
@@ -29,6 +31,7 @@ public class RegEx {
     }
 
     public NFA pattern(){
+        // searching for pattern
         NFA q;
         if(validNum() || search() == '('){
             q = end();
@@ -45,6 +48,7 @@ public class RegEx {
     }
 
     public NFA end(){
+        // finding end of regex 
         NFA q;
         q = letters();
         while(search() == '*'){
@@ -60,6 +64,7 @@ public class RegEx {
     }
 
     public NFA letters(){
+        // finding letters in file
         NFA a;
         char q;
         if(validChar()){
@@ -78,20 +83,24 @@ public class RegEx {
     }
 
     public boolean validChar(){
+        // validating characters
         return search() <= 'z' && search() >= 'a';
     }
 
     public boolean validNum(){
+        // validating numbers
         return search() >= 97 && search() <= 122;
     }
 
     public void matchCheck(char a){
+        // if found increase x
         if(search() == a){
             x++;
         }
     }
 
     public char search(){
+        // searching through z and dropping one char
         if(x >= z.length){
             return (char)-1;
         }

@@ -1,9 +1,7 @@
 /** Hannah Dougherty
  * NFA.java
  */
-
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 public class NFA{
@@ -22,19 +20,23 @@ public class NFA{
         protected int accept = FAIL;
 
         public State(){
+            // keeps track of states 
             stateNumber = globals++;
         }
 
         public void edge(char z, State target){
+            // edges 
             Edge e = new Edge(z, target);
             edges.add(e);
         }
 
         public void epsilon(State target){
+            // epsilon 
             edge(EPSILON, target);
         }
 
         public void accept(int x){
+            // accepting states 
             accept = x;
         }
 
@@ -65,28 +67,6 @@ public class NFA{
     public NFA(State start, State stop){
         this.stop = stop;
         this.start = start;
-    }
-
-    // build string file
-
-    public void tooDOT(){
-        // build string to save
-    }
-
-    public LinkedHashSet<State> getState(){
-        LinkedHashSet<State> visited = new LinkedHashSet<>();
-        getStater(start, visited);
-        return visited;
-    }
-
-    public void getStater(State x, LinkedHashSet<State> visited){
-        if(visited.contains(x)){
-            return;
-        }
-        visited.add(x);
-        for(Edge e: x.edges){
-            getStater(e.target, visited);
-        }
     }
 
     public static NFA atom(char z){

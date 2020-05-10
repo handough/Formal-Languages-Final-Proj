@@ -7,12 +7,14 @@ import java.io.*;
 public class grep{
         
     public static class writeFile{
+        // creating NFA and DFA files
         static StringBuilder NFAfile = new StringBuilder();
         static StringBuilder DFAfile = new StringBuilder();
         int NFA = 0;
         int DFA = 1;
 
         public NFA processNFA(String[] regexer, int x){
+            // processing NFA file
             RegEx parse = new RegEx(regexer[x]);
             NFA nfaa = parse.regex();;
             return nfaa;
@@ -25,8 +27,8 @@ public class grep{
     }
 
     public static void main(String[] args){
-
         try{
+            // accepting file to work with 
             BufferedReader read =  new BufferedReader(new InputStreamReader(System.in));
             System.out.println("Please enter a regex file and path:");
             String s = read.readLine();
@@ -37,8 +39,10 @@ public class grep{
             String NFAfiler = line[1];
             String DFAfiler = line[2];
     
-            FileReader filer = new FileReader(regexer); // read regex file
+            // read regex file
+            FileReader filer = new FileReader(regexer); 
             BufferedReader in = new BufferedReader(filer);
+            // finding the length of the file
             int length = 0;
             String lines = in.readLine();
             while(line != null){
@@ -55,12 +59,14 @@ public class grep{
             }
             in.close();
     
-            //String[] lines = file.openFile(); // open regex file
+            // open regex file
             FileWriter outputNFA = new FileWriter(NFAfiler); // create NFA file
             FileWriter outputDFA = new FileWriter(DFAfiler); // create DFA file
+            // closing the file 
             outputNFA.close();
             outputDFA.close();
         }catch(IOException e){
+            // catching errors 
             System.out.println("An error occurred.");
         }
     }

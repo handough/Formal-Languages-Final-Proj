@@ -5,6 +5,7 @@
 public class DFA extends NFA{
 
     public DFA(){
+        // constructor 
         super();
     }
 
