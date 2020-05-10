@@ -1,2 +1,4 @@
 # Formal-Languages-Final-Proj
-This is where I will be saving my final project for Formal Languages.
+Professor code: mod3.java and mod3filter.java
+Test file: test.txt
+
